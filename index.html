@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Mother's Day! | A Digital Surprise</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader-chibi">🌸</div>
+        <div id="loading-text">Baking some love...</div>
+    </div>
+
+    <!-- Background Decorations -->
+    <div class="decoration-container" id="decorations"></div>
+
+    <div class="container">
+        <header>
+            <h1>Happy Mother's Day, Mom!</h1>
+            <p class="welcome-msg">
+                Welcome to your little corner of the internet! I've made this digital scrapbook just for you. 
+                Click on the boxes below to reveal a few surprises I've hidden away... ✨
+            </p>
+        </header>
+
+        <main class="boxes-grid">
+            <div class="surprise-box" onclick="openSurprise(1)">
+                <div class="box-icon">🎁</div>
+                <div class="box-title">The Recipe of Love</div>
+                <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.7;">Click to peek inside!</p>
+            </div>
+
+            <div class="surprise-box" onclick="openSurprise(2)">
+                <div class="box-icon">🧸</div>
+                <div class="box-title">Memory Lane</div>
+                <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.7;">A trip to the past...</p>
+            </div>
+
+            <div class="surprise-box" onclick="openSurprise(3)">
+                <div class="box-icon">⭐</div>
+                <div class="box-title">The Secret Award</div>
+                <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.7;">Top Secret!</p>
+            </div>
+        </main>
+
+        <footer style="margin-top: 4rem; opacity: 0.6; font-size: 0.9rem;">
+            Made with 💖 just for you.
+        </footer>
+    </div>
+
+    <!-- Modal for Content -->
+    <div class="modal-overlay" id="modal">
+        <div class="scrapbook-page">
+            <button class="close-btn" onclick="closeSurprise()">&times;</button>
+            <div id="modal-content">
+                <!-- Content will be injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+        <button class="btn-circle" onclick="toggleEditMode()" title="Customize Content">⚙️</button>
+        <button class="btn-circle" id="music-btn" onclick="toggleMusic()" title="Toggle Music">🎵</button>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="modal-overlay" id="edit-modal">
+        <div class="scrapbook-page" style="max-width: 800px;">
+            <button class="close-btn" onclick="toggleEditMode()">&times;</button>
+            <h2 style="font-family: 'Indie Flower'; font-size: 2rem; margin-bottom: 1rem;">Customize the Love</h2>
+            
+            <div style="display: flex; flex-direction: column; gap: 1rem; max-height: 500px; overflow-y: auto; padding-right: 10px;">
+                <label><b>Box 1 Content (Recipe of Love):</b></label>
+                <textarea id="edit-joke-1" style="width: 100%; height: 100px; border-radius: 10px; padding: 10px; border: 1px solid var(--bg-beige); font-family: 'Outfit';"></textarea>
+                
+                <label><b>Box 2 Content (Memory Lane):</b></label>
+                <textarea id="edit-joke-2" style="width: 100%; height: 100px; border-radius: 10px; padding: 10px; border: 1px solid var(--bg-beige); font-family: 'Outfit';"></textarea>
+                
+                <label><b>Box 3 Content (Secret Award):</b></label>
+                <textarea id="edit-joke-3" style="width: 100%; height: 100px; border-radius: 10px; padding: 10px; border: 1px solid var(--bg-beige); font-family: 'Outfit';"></textarea>
+                
+                <label><b>Loading Messages (One per line):</b></label>
+                <textarea id="edit-loading" style="width: 100%; height: 100px; border-radius: 10px; padding: 10px; border: 1px solid var(--bg-beige); font-family: 'Outfit';"></textarea>
+                
+                <button onclick="saveChanges()" style="padding: 15px; border-radius: 20px; border: none; background: var(--accent-pink); color: white; font-weight: bold; cursor: pointer; transition: 0.3s;">Save All Changes ✨</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Audio -->
+    <audio id="bg-music" loop>
+        <source src="music.mp4" type="audio/mp4">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
